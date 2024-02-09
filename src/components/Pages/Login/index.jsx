@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useImperativeHandle, useRef } from "react";
+import Component from "../../component";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  const ref = useRef();
+  useImperativeHandle(
+    ref,
+    () => {
+      ref.current.focus();
+    },
+    []
+  );
+  return <Component ref={ref} />;
 };
 
 export default LoginPage;
