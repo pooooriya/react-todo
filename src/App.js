@@ -1,13 +1,34 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TodoPage from "./components/Pages/Todo";
+import LoginPage from "./components/Pages/Login";
 import { Layout } from "./components/Layout";
-import Todo from "./components/Todo";
+import { GuardRoute } from "./components/GuardRoute";
 
 function App() {
   return (
-    <Layout>
-      <div className="flex justify-center items-center py-3">
-        <Todo />
-      </div>
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<TodoPage />} />
+          <Route
+            element={
+              <GuardRoute>
+                <LoginPage />
+              </GuardRoute>
+            }
+            path="login"
+          />
+          <Route
+            element={
+              <GuardRoute>
+                <LoginPage />
+              </GuardRoute>
+            }
+            path="blog"
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

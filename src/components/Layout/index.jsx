@@ -1,12 +1,15 @@
 import React from "react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
+import { Outlet } from "react-router-dom";
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   return (
     <>
       <Header />
-      <div className="min-h-[50vh]">{children}</div>
+      <div className="min-h-[50vh]">
+        <Outlet />
+      </div>
       <Footer />
     </>
   );

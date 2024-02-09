@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 
-export const Footer = () => {
+export const Footer = memo(() => {
   return (
     <div className="py-2 flex justify-center items-center bg-gray-300 ">
       Footer
     </div>
   );
-};
+});
